@@ -185,12 +185,37 @@ Basic R Commands
 </tbody>
 </table>
 
+Probability and Sampling
+------------------------
+
+Probability distributions have four forms:
+
+-   r--- - Randomly sample the distribution
+-   d--- - Density function
+-   p--- - Distribution function
+-   q--- - Quantile function
+
+Some of the distributions available (preface it with an above letter):
+
+-   beta - Beta
+-   binom - Binomial
+-   exp - Exponential
+-   gamma - Gamma
+-   geom - Geometric
+-   norm - Normal (Gaussian)
+-   pois - Poisson
+-   unif - Uniform
+-   weibull - Weibull
+
 Time
 ----
 
-There are two classes in R used to represent time: \* POSIXct : Unix
-time (time represented as seconds from January 1, 1970) \* POSIXlt :
-Time represented as named list (sec, min, mday, mon, year, etc)
+There are two classes in R used to represent time:
+
+-   POSIXct : Unix time (time represented as seconds from January 1,
+    1970)
+-   POSIXlt : Time represented as named list (sec, min, mday, mon, year,
+    etc)
 
 [List of time formatters](http://unixhelp.ed.ac.uk/CGI/man-cgi?date)
 
@@ -271,11 +296,83 @@ Timespans are either duration, interval, or period objects.
 <li>weekday(x)</li>
 <li>year(x)</li>
 </ul></td>
-<td align="left">Gets /sets the time unit specified; <em>tz</em> stands for &quot;time zone&quot;</td>
+<td align="left">Gets /sets the time unit specified; <em>tz</em> stands for &quot;time zone&quot;; <em>quarter</em> returns Q1-Q4</td>
 </tr>
 <tr class="odd">
 <td align="left"><p>weekdays(x)</p></td>
 <td align="left"><p>Returns the name of the day of the week</p></td>
+</tr>
+</tbody>
+</table>
+
+Graphics
+--------
+
+The following are functions in the base package:
+
+<table>
+<col width="44%" />
+<col width="55%" />
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>boxplot(x)</p></td>
+<td align="left"><p>Generates a box-and-whisker plot</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>hist(x)</p></td>
+<td align="left"><p>Generates a histogram of x</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>plot(x)</p></td>
+<td align="left"><p>Generates a scatterplot</p></td>
+</tr>
+</tbody>
+</table>
+
+### ggplot2
+
+Swirl
+-----
+
+[The official page](http://swirlstats.com/)
+
+These are the basic commands within swirl:
+
+<table>
+<col width="44%" />
+<col width="55%" />
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>bye()</p></td>
+<td align="left"><p>Saves progress and exits</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>info()</p></td>
+<td align="left"><p>Display list of commands and their uses</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>nxt()</p></td>
+<td align="left"><p>Continue the swirl lesson</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>play()</p></td>
+<td align="left"><p>Pauses swirl to go into &quot;sandbox&quot; mode</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>skip()</p></td>
+<td align="left"><p>Skips current lesson question</p></td>
 </tr>
 </tbody>
 </table>

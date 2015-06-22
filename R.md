@@ -116,9 +116,33 @@ Basic R Commands
 |                                  | length                                   |
 +----------------------------------+------------------------------------------+
 
+Probability and Sampling
+-------------------------------------------------------------------------------
+
+Probability distributions have four forms:
+
+* r--- - Randomly sample the distribution
+* d--- - Density function
+* p--- - Distribution function
+* q--- - Quantile function 
+
+Some of the distributions available (preface it with an above letter):
+
+* beta - Beta
+* binom - Binomial 
+* exp - Exponential
+* gamma - Gamma
+* geom - Geometric
+* norm - Normal (Gaussian)
+* pois - Poisson 
+* unif - Uniform
+* weibull - Weibull
+
+
 Time
 -------------------------------------------------------------------------------
 There are two classes in R used to represent time: 
+
 * POSIXct : Unix time (time represented as seconds from January 1, 1970)
 * POSIXlt : Time represented as named list (sec, min, mday, mon, year, etc)
 
@@ -165,8 +189,8 @@ Timespans are either duration, interval, or period objects.
 |                                  | interval _b_                             |
 +----------------------------------+------------------------------------------+
 | * hour(x)                        | Gets /sets the time unit specified; _tz_ |
-| * minute(x)                      | stands for "time zone"                   |
-| * month(x)                       |                                          |
+| * minute(x)                      | stands for "time zone"; _quarter_        |
+| * month(x)                       | returns Q1-Q4                            |
 | * quarter(x)                     |                                          |
 | * second(x)                      |                                          |
 | * tz(x)                          |                                          |
@@ -175,6 +199,46 @@ Timespans are either duration, interval, or period objects.
 +----------------------------------+------------------------------------------+
 |weekdays(x)                       | Returns the name of the day of the week  |
 +----------------------------------+------------------------------------------+
+
+Graphics
+-------------------------------------------------------------------------------
+
+The following are functions in the base package:
+
++----------------------------------+------------------------------------------+
+|Name                              | Description                              |
++==================================+==========================================+
+|boxplot(x)                        | Generates a box-and-whisker plot         |
++----------------------------------+------------------------------------------+
+|hist(x)                           | Generates a histogram of x               |
++----------------------------------+------------------------------------------+
+|plot(x)                           | Generates a scatterplot                  |
++----------------------------------+------------------------------------------+
+
+### ggplot2
+
+
+Swirl
+-------------------------------------------------------------------------------
+
+[The official page](http://swirlstats.com/)
+
+These are the basic commands within swirl:
+
++----------------------------------+------------------------------------------+
+|Name                              | Description                              |
++==================================+==========================================+
+|bye()                             | Saves progress and exits                 |
++----------------------------------+------------------------------------------+
+|info()                            | Display list of commands and their uses  |
++----------------------------------+------------------------------------------+
+|nxt()                             | Continue the swirl lesson                |
++----------------------------------+------------------------------------------+
+|play()                            | Pauses swirl to go into "sandbox" mode   |
++----------------------------------+------------------------------------------+
+|skip()                            | Skips current lesson question            |
++----------------------------------+------------------------------------------+
+
 
 Debugging Functions
 -------------------------------------------------------------------------------
