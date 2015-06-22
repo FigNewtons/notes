@@ -42,8 +42,6 @@ Basic R Commands
 +----------------------------------+------------------------------------------+
 |data.frame()                      | Creates a data frame                     |
 +----------------------------------+------------------------------------------+
-|date()                            | Returns current system date              |
-+----------------------------------+------------------------------------------+
 |dim(x) <- value                   | Gets or sets the dimension of an object  |
 +----------------------------------+------------------------------------------+
 |dir()                             | List files in the working directory      |
@@ -116,6 +114,66 @@ Basic R Commands
 +----------------------------------+------------------------------------------+
 |vector(mode="logical", length = 0)| Creates a vector of a certain mode and   |
 |                                  | length                                   |
++----------------------------------+------------------------------------------+
+
+Time
+-------------------------------------------------------------------------------
+There are two classes in R used to represent time: 
+* POSIXct : Unix time (time represented as seconds from January 1, 1970)
+* POSIXlt : Time represented as named list (sec, min, mday, mon, year, etc)
+
+[List of time formatters](http://unixhelp.ed.ac.uk/CGI/man-cgi?date)
+
++----------------------------------+------------------------------------------+
+|Name                              | Description                              |
++==================================+==========================================+
+|date()                            | Returns current date                     |
++----------------------------------+------------------------------------------+
+|difftime(t2, t1, tz,			   | Returns the time difference (t2 - t1)    |
+|   units = c("auto","secs",       |                                          |
+|   "mins","hours","days","weeks"))|                                          |
++----------------------------------+------------------------------------------+
+|strptime(x, format, tz="")        | Converts x into a suitable time object   |
++----------------------------------+------------------------------------------+
+|Sys.time(x)                       | Returns the current system time          |
++----------------------------------+------------------------------------------+
+
+
+### Lubridate
+
+[Here is the lubridate documentation]
+(cran.r-project.org/web/packages/lubridate/lubridate.pdf)
+
+Timespans are either duration, interval, or period objects. 
+
++----------------------------------+------------------------------------------+
+|Name                              | Description                              |
++==================================+==========================================+
+|am(x) / pm(x)                     | Returns TRUE if _x_ occurs in the AM / PM|
++----------------------------------+------------------------------------------+
+|hms(x) / ms(x) / ymd(x), etc      | Returns a period object based on the     |
+|                                  | order and letters of the function        |
+|                                  | (y = year, m = month, d = day, h = hour, |
+|                                  | s = second)                              |
++----------------------------------+------------------------------------------+
+|leap_year(x)                      | Returns TRUE if _x_ is a leap year       |
++----------------------------------+------------------------------------------+
+|now(x) / today(x)                 | Returns the current time; today returns  |
+|                                  | YYYY-MM-DD while now includes HH:MM:SS TZ|
++----------------------------------+------------------------------------------+
+|a %within% b                      | Returns TRUE if time _a_ is within       | 
+|                                  | interval _b_                             |
++----------------------------------+------------------------------------------+
+| * hour(x)                        | Gets /sets the time unit specified; _tz_ |
+| * minute(x)                      | stands for "time zone"                   |
+| * month(x)                       |                                          |
+| * quarter(x)                     |                                          |
+| * second(x)                      |                                          |
+| * tz(x)                          |                                          |
+| * weekday(x)                     |                                          |
+| * year(x)                        |                                          |
++----------------------------------+------------------------------------------+
+|weekdays(x)                       | Returns the name of the day of the week  |
 +----------------------------------+------------------------------------------+
 
 Debugging Functions
