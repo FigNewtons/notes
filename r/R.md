@@ -128,6 +128,8 @@ Basic R Commands
 |vector(mode="logical", length = 0)| Creates a vector of a certain mode and   |
 |                                  | length                                   |
 +----------------------------------+------------------------------------------+
+|View(x, title)                    | Displays a spreadsheet-like data viewer  |
++----------------------------------+------------------------------------------+
 
 Files and Reading Data
 -------------------------------------------------------------------------------
@@ -154,6 +156,7 @@ occurrences. In both cases, we have an added _replacement_ argument:
 * sub(pattern, replacement, x)
         
 Arguments:
+
 * _pattern_ is your regex pattern
 * _x_ is the vector you want match the pattern against
 * _ignore.case_ turns off case-sensitive matching
@@ -186,6 +189,70 @@ Some of the distributions available (preface it with an above letter):
 * pois - Poisson 
 * unif - Uniform
 * weibull - Weibull
+
+dplyr / tidyr
+-------------------------------------------------------------------------------
+
+The R packages dplyr and tidyr were created by Hadley Wickham as a way to 
+simplify and streamline the data analysis pipeline; dplyr is used for data
+manipulation while tidyr is used for cleaning untidy datasets.
+
+With dplyr, we have a few verbs that encompass most of our data manipulation
+tasks. But first, it's perferable to use tbl_df() and tbl_dt() for data frames
+and data tables, respectively, for a nicer way to represent the dataset you
+want to work with:
+
++----------------------------------+------------------------------------------+
+|Name                              | Description                              |
++==================================+==========================================+
+| filter()                         | Returns a subset of rows in a data frame |
++----------------------------------+------------------------------------------+
+| slice()                          | Select rows by position                  |
++----------------------------------+------------------------------------------+
+| arrange()                        | Orders by columns; use desc() for        |
+|                                  | descending order                         |
++----------------------------------+------------------------------------------+
+| select()                         | Select columns; the : operator allows    |
+|                                  | inclusive selection by column name; the  |
+|                                  | - operator excludes columns              |
++----------------------------------+------------------------------------------+
+| rename()                         | Similar to select except you can rename  |
+|                                  | column names at the same time            |
++----------------------------------+------------------------------------------+
+| distinct()                       | Return unique values in table; generally |
+|                                  | used with select (like in SQL)           |
++----------------------------------+------------------------------------------+
+| mutate()                         | Adds columns to table; more flexible than|
+|                                  | transform()                              |
++----------------------------------+------------------------------------------+
+| transmutate()                    | Keeps just the variables you created     |
++----------------------------------+------------------------------------------+
+| summarize()                      | Condenses multiple values into a single  |
+|                                  | value                                    |
++----------------------------------+------------------------------------------+
+| inner_join(x, y, by = NULL)      | Joins two tables together; there's also  |
+|                                  | left, right, full joins, etc. just like  |
+|                                  | in SQL                                   |
++----------------------------------+------------------------------------------+
+
+It is important to realize that we can chain many of these operations together
+if we are dealing with a single dataset by using the %>% operator. 
+
+Now for the tidyr functions:
+
++----------------------------------+------------------------------------------+
+|Name                              | Description                              |
++==================================+==========================================+
+| gather(data, key, value, ...)    | Collapses multiple columns into key-value|
+|                                  | pairs                                    |
++----------------------------------+------------------------------------------+
+| separate(data, col, into, sep)   | Separate one column into multiple columns|
++----------------------------------+------------------------------------------+
+| unite(data, col, ..., sep = "_") | Unite mutliple columns into one          |
++----------------------------------+------------------------------------------+
+| spread(data, key, value)         | Spread a key-value pair across multiple  |
+|                                  | columns                                  |
++----------------------------------+------------------------------------------+
 
 
 Time

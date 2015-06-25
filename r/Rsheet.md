@@ -206,6 +206,10 @@ Basic R Commands
 <td align="left"><p>vector(mode=&quot;logical&quot;, length = 0)</p></td>
 <td align="left"><p>Creates a vector of a certain mode and length</p></td>
 </tr>
+<tr class="odd">
+<td align="left"><p>View(x, title)</p></td>
+<td align="left"><p>Displays a spreadsheet-like data viewer</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -234,12 +238,16 @@ argument:
 
 -   sub(pattern, replacement, x)
 
-Arguments: \* *pattern* is your regex pattern \* *x* is the vector you
-want match the pattern against \* *ignore.case* turns off case-sensitive
-matching \* *perl* allows Perl-style regexes \* *value* returns a vector
-of the matched strings \* *fixed* forces *pattern* to be matched as-is
-\* *useBytes* matching done by byte rather than by character \* *invert*
-returns the strings that don't match
+Arguments:
+
+-   *pattern* is your regex pattern
+-   *x* is the vector you want match the pattern against
+-   *ignore.case* turns off case-sensitive matching
+-   *perl* allows Perl-style regexes
+-   *value* returns a vector of the matched strings
+-   *fixed* forces *pattern* to be matched as-is
+-   *useBytes* matching done by byte rather than by character
+-   *invert* returns the strings that don't match
 
 Probability and Sampling
 ------------------------
@@ -263,6 +271,106 @@ Some of the distributions available (preface it with an above letter):
 -   pois - Poisson
 -   unif - Uniform
 -   weibull - Weibull
+
+dplyr / tidyr
+-------------
+
+The R packages dplyr and tidyr were created by Hadley Wickham as a way
+to simplify and streamline the data analysis pipeline; dplyr is used for
+data manipulation while tidyr is used for cleaning untidy datasets.
+
+With dplyr, we have a few verbs that encompass most of our data
+manipulation tasks. But first, it's perferable to use tbl\_df() and
+tbl\_dt() for data frames and data tables, respectively, for a nicer way
+to represent the dataset you want to work with:
+
+<table>
+<col width="44%" />
+<col width="55%" />
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>filter()</p></td>
+<td align="left"><p>Returns a subset of rows in a data frame</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>slice()</p></td>
+<td align="left"><p>Select rows by position</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>arrange()</p></td>
+<td align="left"><p>Orders by columns; use desc() for descending order</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>select()</p></td>
+<td align="left"><p>Select columns; the : operator allows inclusive selection by column name; the - operator excludes columns</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>rename()</p></td>
+<td align="left"><p>Similar to select except you can rename column names at the same time</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>distinct()</p></td>
+<td align="left"><p>Return unique values in table; generally used with select (like in SQL)</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>mutate()</p></td>
+<td align="left"><p>Adds columns to table; more flexible than transform()</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>transmutate()</p></td>
+<td align="left"><p>Keeps just the variables you created</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>summarize()</p></td>
+<td align="left"><p>Condenses multiple values into a single value</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>inner_join(x, y, by = NULL)</p></td>
+<td align="left"><p>Joins two tables together; there's also left, right, full joins, etc. just like in SQL</p></td>
+</tr>
+</tbody>
+</table>
+
+It is important to realize that we can chain many of these operations
+together if we are dealing with a single dataset by using the %\>%
+operator.
+
+Now for the tidyr functions:
+
+<table>
+<col width="44%" />
+<col width="55%" />
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>gather(data, key, value, ...)</p></td>
+<td align="left"><p>Collapses multiple columns into key-value pairs</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>separate(data, col, into, sep)</p></td>
+<td align="left"><p>Separate one column into multiple columns</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>unite(data, col, ..., sep = &quot;_&quot;)</p></td>
+<td align="left"><p>Unite mutliple columns into one</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>spread(data, key, value)</p></td>
+<td align="left"><p>Spread a key-value pair across multiple columns</p></td>
+</tr>
+</tbody>
+</table>
 
 Time
 ----
