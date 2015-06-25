@@ -54,6 +54,8 @@ Basic R Commands
 +----------------------------------+------------------------------------------+
 |factor(x, levels, labels, ordered)| Creates a factor object                  |
 +----------------------------------+------------------------------------------+
+|file.path(...)                    | Construct file path from components      |
++----------------------------------+------------------------------------------+
 |get(x)                            | Fetches object(s) by name                | 
 +----------------------------------+------------------------------------------+
 |getwd(dir)                        | Sets the working directory to _dir_      | 
@@ -78,6 +80,8 @@ Basic R Commands
 +----------------------------------+------------------------------------------+
 |names(x) <- value                 |Get or set the names of an object         |
 +----------------------------------+------------------------------------------+
+|nchar(x)                          | Returns length of string/character vector|
++----------------------------------+------------------------------------------+
 |nrow(x) / ncol(x)                 | Returns the no. of rows/columns in _x_   |
 +----------------------------------+------------------------------------------+
 |paste(..., collapse=NULL)         | Join vectors into a string;the _collapse_|
@@ -88,15 +92,24 @@ Basic R Commands
 +----------------------------------+------------------------------------------+
 |print(x)						   | Prints _x_                               |
 +----------------------------------+------------------------------------------+
+|range()                           | Returns a vector with the min and max    |
++----------------------------------+------------------------------------------+
 |rep(x, times= 1, each = 1)        | Repeats _x_ by a specified no. of times; |
 |                                  | the _each_ parameter allows us to repeat |
 |                                  | element-wise in a vector                 |
++----------------------------------+------------------------------------------+
+|require(package)                  | Similar to library(), but returns a truth|
+|                                  | value if package is found                |
++----------------------------------+------------------------------------------+
+|rm(..., list = character())       | Removes objects from an environment      |
 +----------------------------------+------------------------------------------+
 |seq(from, to, by)                 | Generates regular sequences              |
 +----------------------------------+------------------------------------------+
 |seq_along(x)                      | Generates sequence from 1, ..., length(x)|
 +----------------------------------+------------------------------------------+
 |setwd(dir)                        | Changes the working directory to _dir_   |
++----------------------------------+------------------------------------------+
+|source(file)                      | Read R code from a file or connection    |
 +----------------------------------+------------------------------------------+
 |stop()                            | Stops execution and throws an error with |
 |                                  | a provided message                       |
@@ -116,6 +129,41 @@ Basic R Commands
 |                                  | length                                   |
 +----------------------------------+------------------------------------------+
 
+Files and Reading Data
+-------------------------------------------------------------------------------
+
+The basic ways to read in data come from the read.* functions:
+
+* read.table()
+* read.csv()
+* read.delim()
+
+Working with Text
+-------------------------------------------------------------------------------
+
+For pattern matching, we have the almighty _grep_ function.
+
+* grep(pattern, x, ignore.case = FALSE, perl = FALSE, value = FALSE, 
+        fixed = FALSE, useBytes = FALSE, invert = FALSE)
+        
+By default, grep returns the indices of matches. If you want a logical vector
+instead, use _grepl_. For pattern substitutions, use _sub_ and _gsub_ : the
+former replaces just the first occurrence while the latter replaces all
+occurrences. In both cases, we have an added _replacement_ argument:
+
+* sub(pattern, replacement, x)
+        
+Arguments:
+* _pattern_ is your regex pattern
+* _x_ is the vector you want match the pattern against
+* _ignore.case_ turns off case-sensitive matching
+* _perl_ allows Perl-style regexes
+* _value_ returns a vector of the matched strings
+* _fixed_ forces _pattern_ to be matched as-is
+* _useBytes_ matching done by byte rather than by character
+* _invert_ returns the strings that don't match
+
+
 Probability and Sampling
 -------------------------------------------------------------------------------
 
@@ -130,6 +178,7 @@ Some of the distributions available (preface it with an above letter):
 
 * beta - Beta
 * binom - Binomial 
+* cauchy - Cauchy
 * exp - Exponential
 * gamma - Gamma
 * geom - Geometric

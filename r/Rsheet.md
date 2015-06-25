@@ -87,44 +87,52 @@ Basic R Commands
 <td align="left"><p>Creates a factor object</p></td>
 </tr>
 <tr class="odd">
+<td align="left"><p>file.path(...)</p></td>
+<td align="left"><p>Construct file path from components</p></td>
+</tr>
+<tr class="even">
 <td align="left"><p>get(x)</p></td>
 <td align="left"><p>Fetches object(s) by name</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>getwd(dir)</p></td>
 <td align="left"><p>Sets the working directory to <em>dir</em></p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>head(x, n = 6L) / tail(x, n = 6L)</p></td>
 <td align="left"><p>Displays the first/last <em>n</em> lines of an object</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>install.packages(pkgs)</p></td>
 <td align="left"><p>Install the list of <em>pkgs</em> from CRAN</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>invisible(x)</p></td>
 <td align="left"><p>Prevents the automatic printing of an object</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>length(x)</p></td>
 <td align="left"><p>Returns the length of an object</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>library(package)</p></td>
 <td align="left"><p>Loads an R package environment for use; <em>package</em> is without quotes, and <em>help = package</em> gives us documentation</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>ls()</p></td>
 <td align="left"><p>List the objects in R's local workspace</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>matrix(data=NA,nrow = 1,ncol = 1)</p></td>
 <td align="left"><p>Creates a matrix from <em>data</em></p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>names(x) &lt;- value</p></td>
 <td align="left"><p>Get or set the names of an object</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>nchar(x)</p></td>
+<td align="left"><p>Returns length of string/character vector</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>nrow(x) / ncol(x)</p></td>
@@ -139,20 +147,36 @@ Basic R Commands
 <td align="left"><p>Prints <em>x</em></p></td>
 </tr>
 <tr class="even">
+<td align="left"><p>range()</p></td>
+<td align="left"><p>Returns a vector with the min and max</p></td>
+</tr>
+<tr class="odd">
 <td align="left"><p>rep(x, times= 1, each = 1)</p></td>
 <td align="left"><p>Repeats <em>x</em> by a specified no. of times; the <em>each</em> parameter allows us to repeat element-wise in a vector</p></td>
 </tr>
+<tr class="even">
+<td align="left"><p>require(package)</p></td>
+<td align="left"><p>Similar to library(), but returns a truth value if package is found</p></td>
+</tr>
 <tr class="odd">
+<td align="left"><p>rm(..., list = character())</p></td>
+<td align="left"><p>Removes objects from an environment</p></td>
+</tr>
+<tr class="even">
 <td align="left"><p>seq(from, to, by)</p></td>
 <td align="left"><p>Generates regular sequences</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>seq_along(x)</p></td>
 <td align="left"><p>Generates sequence from 1, ..., length(x)</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>setwd(dir)</p></td>
 <td align="left"><p>Changes the working directory to <em>dir</em></p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>source(file)</p></td>
+<td align="left"><p>Read R code from a file or connection</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>stop()</p></td>
@@ -185,6 +209,38 @@ Basic R Commands
 </tbody>
 </table>
 
+Files and Reading Data
+----------------------
+
+The basic ways to read in data come from the read.\* functions:
+
+-   read.table()
+-   read.csv()
+-   read.delim()
+
+Working with Text
+-----------------
+
+For pattern matching, we have the almighty *grep* function.
+
+-   grep(pattern, x, ignore.case = FALSE, perl = FALSE, value = FALSE,
+    fixed = FALSE, useBytes = FALSE, invert = FALSE)
+
+By default, grep returns the indices of matches. If you want a logical
+vector instead, use *grepl*. For pattern substitutions, use *sub* and
+*gsub* : the former replaces just the first occurrence while the latter
+replaces all occurrences. In both cases, we have an added *replacement*
+argument:
+
+-   sub(pattern, replacement, x)
+
+Arguments: \* *pattern* is your regex pattern \* *x* is the vector you
+want match the pattern against \* *ignore.case* turns off case-sensitive
+matching \* *perl* allows Perl-style regexes \* *value* returns a vector
+of the matched strings \* *fixed* forces *pattern* to be matched as-is
+\* *useBytes* matching done by byte rather than by character \* *invert*
+returns the strings that don't match
+
 Probability and Sampling
 ------------------------
 
@@ -199,6 +255,7 @@ Some of the distributions available (preface it with an above letter):
 
 -   beta - Beta
 -   binom - Binomial
+-   cauchy - Cauchy
 -   exp - Exponential
 -   gamma - Gamma
 -   geom - Geometric
