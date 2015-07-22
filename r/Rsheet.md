@@ -59,84 +59,92 @@ Basic R Commands
 <td align="left"><p>Returns a logical vector based on rows without missing values (NAs)</p></td>
 </tr>
 <tr class="even">
+<td align="left"><p>cut(x)</p></td>
+<td align="left"><p>Divides the range of x into intervals to be broken into factors</p></td>
+</tr>
+<tr class="odd">
 <td align="left"><p>data()</p></td>
 <td align="left"><p>Loads a data into the workspace</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>data.frame()</p></td>
 <td align="left"><p>Creates a data frame</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>dim(x) &lt;- value</p></td>
 <td align="left"><p>Gets or sets the dimension of an object</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>dir()</p></td>
 <td align="left"><p>List files in the working directory</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>dir.create()</p></td>
 <td align="left"><p>Creates a folder in the working directory (Has recursive mode for subdirectories, which is off by default)</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>environment(fun = NULL)</p></td>
 <td align="left"><p>Prints the environment of function <em>fun</em></p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>factor(x, levels, labels, ordered)</p></td>
 <td align="left"><p>Creates a factor object</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>file.path(...)</p></td>
 <td align="left"><p>Construct file path from components</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>get(x)</p></td>
 <td align="left"><p>Fetches object(s) by name</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>getwd(dir)</p></td>
 <td align="left"><p>Sets the working directory to <em>dir</em></p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>head(x, n = 6L) / tail(x, n = 6L)</p></td>
 <td align="left"><p>Displays the first/last <em>n</em> lines of an object</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>install.packages(pkgs)</p></td>
 <td align="left"><p>Install the list of <em>pkgs</em> from CRAN</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>invisible(x)</p></td>
 <td align="left"><p>Prevents the automatic printing of an object</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>length(x)</p></td>
 <td align="left"><p>Returns the length of an object</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>library(package)</p></td>
 <td align="left"><p>Loads an R package environment for use; <em>package</em> is without quotes, and <em>help = package</em> gives us documentation</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>ls()</p></td>
 <td align="left"><p>List the objects in R's local workspace</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>matrix(data=NA,nrow = 1,ncol = 1)</p></td>
 <td align="left"><p>Creates a matrix from <em>data</em></p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>names(x) &lt;- value</p></td>
 <td align="left"><p>Get or set the names of an object</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>nchar(x)</p></td>
 <td align="left"><p>Returns length of string/character vector</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>nrow(x) / ncol(x)</p></td>
 <td align="left"><p>Returns the no. of rows/columns in <em>x</em></p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>outer(X, Y, FUN)</p></td>
+<td align="left"><p>Computes the outer product of two arrays</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>paste(..., collapse=NULL)</p></td>
@@ -161,6 +169,14 @@ Basic R Commands
 <tr class="odd">
 <td align="left"><p>rm(..., list = character())</p></td>
 <td align="left"><p>Removes objects from an environment</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>savehistory() / loadhistory()</p></td>
+<td align="left"><p>Saves or loads session command history</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>scale(x, center=TRUE, scale=TRUE)</p></td>
+<td align="left"><p>Centers and/or scales the columns of a numeric matrix</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>seq(from, to, by)</p></td>
@@ -191,22 +207,26 @@ Basic R Commands
 <td align="left"><p>Displays the summary stats for x</p></td>
 </tr>
 <tr class="odd">
+<td align="left"><p>t(x)</p></td>
+<td align="left"><p>Transposes a matrix or data frame</p></td>
+</tr>
+<tr class="even">
 <td align="left"><p>tables()</p></td>
 <td align="left"><p>List all tables in the workspace</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>unique(x)</p></td>
 <td align="left"><p>Returns the unique values of an object x</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>unlink(x)</p></td>
 <td align="left"><p>Deletes a file or directory; recursive and force deletion are false by default</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>vector(mode=&quot;logical&quot;, length = 0)</p></td>
 <td align="left"><p>Creates a vector of a certain mode and length</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>View(x, title)</p></td>
 <td align="left"><p>Displays a spreadsheet-like data viewer</p></td>
 </tr>
@@ -486,8 +506,16 @@ The following are functions in the base package:
 </thead>
 <tbody>
 <tr class="odd">
+<td align="left"><p>abline(a = NULL, b = NULL)</p></td>
+<td align="left"><p>Adds a straight line through current plot Arguments: a = intercept, b = slope</p></td>
+</tr>
+<tr class="even">
 <td align="left"><p>boxplot(x)</p></td>
 <td align="left"><p>Generates a box-and-whisker plot</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>contour(x, y, z)</p></td>
+<td align="left"><p>Generates a contour plot z = f(x,y)</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>hist(x)</p></td>
@@ -497,10 +525,105 @@ The following are functions in the base package:
 <td align="left"><p>plot(x)</p></td>
 <td align="left"><p>Generates a scatterplot</p></td>
 </tr>
+<tr class="even">
+<td align="left"><p>pairs(x)</p></td>
+<td align="left"><p>Generates a matrix of scatterplots along every two variables in the dataset</p></td>
+</tr>
 </tbody>
 </table>
 
+Use *dev* to control your graphics devices. For example, dev.off() turns
+off the current device (this is very helpful when plotting and using
+different graphics libraries in one session)
+
 ### ggplot2
+
+There are two basic ways to create a plot with ggplot2: qplot and
+ggplot. For quick plots, use the former (it is similar to plot()). On
+the other hand, ggplot is based on what's called the Grammar of
+Graphics, and so ggplot has different syntax. Briefly, you'll have
+ggplot plus a series of layers. Layers include:
+
+-   Data
+-   Aesthetic mappings (aes)
+-   Geometric objects (geom)
+-   Statistical transformations (stat)
+-   Position adjustment (position)
+
+Most likely, you'll end up with code that looks like this (form-wise):
+\> ggplot(data, aes(x, y)) + geom\_point() + ...
+
+Because of this layered approach, it becomes simple to create more
+complicated graphics. If you want to save your plot, use ggsave.
+
+Perhaps you want to break up your data by factor; that is, you want to
+create a plot for each category of a factor. We can do this by faceting:
+ggplot partitions a plot into a matrix of panels.
+
+We'll now show some examples:
+
+> library(ggplot2)
+
+> qplot(carat, price, data = diamonds) \# Simple scatterplot
+> ggplot(diamonds, aes(carat, price)) + geom\_point() \# Same plot as
+> above
+
+> qplot(hwy, cty, data = mpg, geom = "jitter") ggplot(mpg, aes(hwy,
+> cty)) + geom\_jitter()
+
+> qplot(reorder(class, hwy), hwy, data = mpg, geom = c("jitter",
+> "boxplot")) ggplot(mpg, aes(reorder(class, hwy), hwy)) +
+> geom\_jitter() + geom\_boxplot()
+
+> qplot(log10(carat), log10(price), data = diamonds, color = color) +
+> geom\_smooth(method = "lm") ggplot(diamonds, aes(log10(carat),
+> log10(price), color = color)) + geom\_point() + geom\_smooth(method =
+> "lm")
+
+<table>
+<col width="44%" />
+<col width="55%" />
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>qplot()</p></td>
+<td align="left"><p>Creates a quick plot</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>ggplot()</p></td>
+<td align="left"><p>Initializes a ggplot object</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>ggsave()</p></td>
+<td align="left"><p>Saves a plot</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>last_plot()</p></td>
+<td align="left"><p>Retrieves the last plot called</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>resolution()</p></td>
+<td align="left"><p>Returns the smallest non-zero distance between adjacent values</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>xlim() / ylim()</p></td>
+<td align="left"><p>Set the limits for the x and y axis, resp</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>facet_wrap(~cell)</p></td>
+<td align="left"><p>Creates a 1D strip of panels based on a single factor, wrapping it into 2D</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>facet_grid(row ~ col)</p></td>
+<td align="left"><p>Creates a 2D matrix of panels based on two factors</p></td>
+</tr>
+</tbody>
+</table>
 
 Swirl
 -----

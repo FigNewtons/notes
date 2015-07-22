@@ -1,0 +1,4 @@
+pandoc R.md -f markdown -t html -s -o R.html
+
+pandoc -f html -t markdown_strict R.html -o Rsheet.md
+

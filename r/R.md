@@ -38,6 +38,9 @@ Basic R Commands
 |complete.cases()                  | Returns a logical vector based on rows   |
 |                                  | without missing values (NAs)             |
 +----------------------------------+------------------------------------------+
+|cut(x)                            | Divides the range of x into intervals to |
+|                                  | be broken into factors                   |
++----------------------------------+------------------------------------------+
 |data()                            | Loads a data into the workspace          |
 +----------------------------------+------------------------------------------+
 |data.frame()                      | Creates a data frame                     |
@@ -84,6 +87,8 @@ Basic R Commands
 +----------------------------------+------------------------------------------+
 |nrow(x) / ncol(x)                 | Returns the no. of rows/columns in _x_   |
 +----------------------------------+------------------------------------------+
+|outer(X, Y, FUN)                  | Computes the outer product of two arrays |
++----------------------------------+------------------------------------------+
 |paste(..., collapse=NULL)         | Join vectors into a string;the _collapse_|
 |                                  | argument tells us what to put in between |
 |                                  | each vector upon concatenation;the _sep_ |
@@ -103,6 +108,11 @@ Basic R Commands
 +----------------------------------+------------------------------------------+
 |rm(..., list = character())       | Removes objects from an environment      |
 +----------------------------------+------------------------------------------+
+|savehistory() / loadhistory()     | Saves or loads session command history   |
++----------------------------------+------------------------------------------+
+|scale(x, center=TRUE, scale=TRUE) | Centers and/or scales the columns of a   |
+|                                  | numeric matrix                           |
++----------------------------------+------------------------------------------+
 |seq(from, to, by)                 | Generates regular sequences              |
 +----------------------------------+------------------------------------------+
 |seq_along(x)                      | Generates sequence from 1, ..., length(x)|
@@ -117,6 +127,8 @@ Basic R Commands
 |str(x)                            | Displays the structure of x              |
 +----------------------------------+------------------------------------------+
 |summary(x)                        | Displays the summary stats for x         |
++----------------------------------+------------------------------------------+
+|t(x)                              | Transposes a matrix or data frame        |
 +----------------------------------+------------------------------------------+
 |tables()                          | List all tables in the workspace         |
 +----------------------------------+------------------------------------------+
@@ -324,15 +336,91 @@ The following are functions in the base package:
 +----------------------------------+------------------------------------------+
 |Name                              | Description                              |
 +==================================+==========================================+
+|abline(a = NULL, b = NULL)        | Adds a straight line through current plot|
+|                                  | Arguments: a = intercept, b = slope      |
++----------------------------------+------------------------------------------+
 |boxplot(x)                        | Generates a box-and-whisker plot         |
++----------------------------------+------------------------------------------+
+|contour(x, y, z)                  | Generates a contour plot z = f(x,y)      |
 +----------------------------------+------------------------------------------+
 |hist(x)                           | Generates a histogram of x               |
 +----------------------------------+------------------------------------------+
 |plot(x)                           | Generates a scatterplot                  |
 +----------------------------------+------------------------------------------+
+|pairs(x)                          | Generates a matrix of scatterplots along |
+|                                  | every two variables in the dataset       |
++----------------------------------+------------------------------------------+
+
+
+Use _dev_ to control your graphics devices. For example, dev.off() turns off
+the current device (this is very helpful when plotting and using different 
+graphics libraries in one session)
 
 ### ggplot2
 
+There are two basic ways to create a plot with ggplot2: qplot and ggplot.
+For quick plots, use the former (it is similar to plot()). On the other hand,
+ggplot is based on what's called the Grammar of Graphics, and so ggplot 
+has different syntax. Briefly, you'll have ggplot plus a series of layers.
+Layers include: 
+
+* Data
+* Aesthetic mappings (aes)
+* Geometric objects (geom)
+* Statistical transformations (stat)
+* Position adjustment (position)
+
+Most likely, you'll end up with code that looks like this (form-wise):
+> ggplot(data, aes(x, y)) + geom_point() + ...
+
+Because of this layered approach, it becomes simple to create more 
+complicated graphics. If you want to save your plot, use ggsave.
+
+Perhaps you want to break up your data by factor; that is, you want
+to create a plot for each category of a factor. We can do this by 
+faceting: ggplot partitions a plot into a matrix of panels.
+
+
+We'll now show some examples:
+
+> library(ggplot2)
+
+> qplot(carat, price, data = diamonds)  # Simple scatterplot
+> ggplot(diamonds, aes(carat, price)) + geom_point() # Same plot as above
+
+> qplot(hwy, cty, data = mpg, geom = "jitter")
+> ggplot(mpg, aes(hwy, cty)) + geom_jitter()
+
+> qplot(reorder(class, hwy), hwy, data = mpg, geom = c("jitter", "boxplot"))
+> ggplot(mpg, aes(reorder(class, hwy), hwy)) + geom_jitter() + geom_boxplot()
+
+> qplot(log10(carat), log10(price), data = diamonds, color = color) + 
+  geom_smooth(method = "lm")
+> ggplot(diamonds, aes(log10(carat), log10(price), color = color)) +
+  geom_point() + geom_smooth(method = "lm")
+
++----------------------------------+------------------------------------------+
+|Name                              | Description                              |
++==================================+==========================================+
+|qplot()                           | Creates a quick plot                     |
++----------------------------------+------------------------------------------+
+|ggplot()                          | Initializes a ggplot object              |
++----------------------------------+------------------------------------------+
+|ggsave()                          | Saves a plot                             |
++----------------------------------+------------------------------------------+
+|last_plot()                       | Retrieves the last plot called           |
++----------------------------------+------------------------------------------+
+|resolution()                      | Returns the smallest non-zero distance   |
+|                                  | between adjacent values                  |
++----------------------------------+------------------------------------------+
+|xlim() / ylim()                   | Set the limits for the x and y axis, resp|
++----------------------------------+------------------------------------------+
+|facet_wrap(~cell)                 | Creates a 1D strip of panels based on a  |
+|                                  | single factor, wrapping it into 2D       |
++----------------------------------+------------------------------------------+
+|facet_grid(row ~ col)             | Creates a 2D matrix of panels based on   |
+|                                  | two factors                              |
++----------------------------------+------------------------------------------+
 
 Swirl
 -------------------------------------------------------------------------------
